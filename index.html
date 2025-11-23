@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Manish Mahara | Cyber Interface</title>
+    <meta name="description" content="Next-Gen 3D Portfolio of Manish Mahara" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Rajdhani', 'sans-serif'],
+              display: ['Orbitron', 'sans-serif'],
+            },
+            colors: {
+              // Dynamic color mapping for Light/Dark modes
+              white: 'rgb(var(--text-main) / <alpha-value>)', // In Light mode, white becomes dark text
+              black: 'rgb(var(--bg-panel) / <alpha-value>)', // In Light mode, black becomes white panel
+              gray: {
+                  300: 'rgb(var(--gray-300) / <alpha-value>)',
+                  400: 'rgb(var(--gray-400) / <alpha-value>)',
+                  500: 'rgb(var(--gray-500) / <alpha-value>)',
+                  700: 'rgb(var(--gray-700) / <alpha-value>)',
+                  800: 'rgb(var(--gray-800) / <alpha-value>)',
+                  900: 'rgb(var(--gray-900) / <alpha-value>)',
+              },
+              cyber: {
+                black: 'rgb(var(--bg-main) / <alpha-value>)',
+                dark: 'rgb(var(--bg-secondary) / <alpha-value>)',
+                panel: 'rgb(var(--bg-panel) / <alpha-value>)',
+                primary: '#00f0ff', // Cyan
+                secondary: '#7000ff', // Purple
+                accent: '#ff003c', // Red/Pink
+                dim: 'rgba(0, 240, 255, 0.1)',
+              }
+            },
+            animation: {
+              'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'spin-slow': 'spin 8s linear infinite',
+              'glitch': 'glitch 1s linear infinite',
+            },
+            keyframes: {
+              glitch: {
+                '2%, 64%': { transform: 'translate(2px,0) skew(0deg)' },
+                '4%, 60%': { transform: 'translate(-2px,0) skew(0deg)' },
+                '62%': { transform: 'translate(0,0) skew(5deg)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      :root {
+        /* Light Mode Variables */
+        --bg-main: 241 245 249; /* Slate 100 */
+        --bg-secondary: 226 232 240; /* Slate 200 */
+        --bg-panel: 255 255 255; /* White */
+        --text-main: 15 23 42; /* Slate 900 */
+        --text-muted: 71 85 105; /* Slate 600 */
+        
+        /* Inverted Grays for Light Mode */
+        --gray-300: 51 65 85;
+        --gray-400: 71 85 105;
+        --gray-500: 100 116 139;
+        --gray-700: 203 213 225;
+        --gray-800: 226 232 240;
+        --gray-900: 241 245 249;
+      }
+      :root.dark {
+        /* Dark Mode Variables */
+        --bg-main: 3 5 8;
+        --bg-secondary: 10 15 22;
+        --bg-panel: 17 24 39;
+        --text-main: 255 255 255;
+        --text-muted: 156 163 175; /* Gray 400 */
+
+        /* Standard Grays for Dark Mode */
+        --gray-300: 209 213 219;
+        --gray-400: 156 163 175;
+        --gray-500: 107 114 128;
+        --gray-700: 55 65 81;
+        --gray-800: 31 41 55;
+        --gray-900: 17 24 39;
+      }
+      
+      body {
+        background-color: rgb(var(--bg-main));
+        color: rgb(var(--text-main));
+        overflow-x: hidden;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      /* Custom scrollbar for cyber feel */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: rgb(var(--bg-secondary));
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1f2937;
+        border: 1px solid #00f0ff;
+      }
+      .neon-text {
+        text-shadow: 0 0 5px rgba(0, 240, 255, 0.5), 0 0 10px rgba(0, 240, 255, 0.3);
+      }
+      .neon-box {
+        box-shadow: 0 0 10px rgba(0, 240, 255, 0.2), inset 0 0 5px rgba(0, 240, 255, 0.1);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.0",
+    "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.7",
+    "three": "https://aistudiocdn.com/three@^0.181.2",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="fixed bottom-6 right-6 z-[60] p-3 border border-cyber-primary bg-cyber-panel/80 backdrop-blur-md text-cyber-primary hover:bg-cyber-primary hover:text-cyber-black transition-all duration-300 shadow-[0_0_15px_rgba(0,240,255,0.3)] group rounded-sm overflow-hidden" aria-label="Toggle Dark Mode">
+        <div class="relative z-10">
+            <!-- Sun Icon -->
+            <svg id="sun-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+            <!-- Moon Icon -->
+            <svg id="moon-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+        </div>
+        <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out skew-y-12"></div>
+    </button>
+
+    <script>
+        const toggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+
+        function setTheme(isDark) {
+            if (isDark) {
+                html.classList.add('dark');
+                html.classList.remove('light');
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                localStorage.theme = 'dark';
+            } else {
+                html.classList.remove('dark');
+                html.classList.add('light');
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                localStorage.theme = 'light';
+            }
+        }
+
+        // Initialize based on storage or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            setTheme(true);
+        } else {
+            setTheme(false);
+        }
+
+        // Toggle Event
+        toggleBtn.addEventListener('click', () => {
+            const isDark = !html.classList.contains('dark');
+            setTheme(isDark);
+        });
+    </script>
+  </body>
+</html>
