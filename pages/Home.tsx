@@ -50,8 +50,30 @@ export default function Home() {
               </CyberButton>
             </div>
           </div>
-          <div className="hidden md:block">
-            {/* The 3D scene background fills this, but we keep this div for spacing */}
+          
+          <div className="hidden md:flex justify-center items-center relative">
+             {/* Profile Photo Container */}
+             <div className="relative group">
+                {/* Rotating Rings */}
+                <div className="absolute inset-[-20px] border-2 border-cyber-primary/20 rounded-full w-[calc(100%+40px)] h-[calc(100%+40px)] animate-[spin_10s_linear_infinite]"></div>
+                <div className="absolute inset-[-10px] border border-cyber-secondary/40 rounded-full w-[calc(100%+20px)] h-[calc(100%+20px)] animate-[spin_7s_linear_infinite_reverse]"></div>
+                
+                {/* Image Wrapper */}
+                <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-2 border-cyber-primary shadow-[0_0_50px_rgba(0,240,255,0.2)] bg-black">
+                    <img 
+                        src={config.avatarUrl} 
+                        alt={config.name}
+                        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105 transform"
+                    />
+                    {/* Glitch Overlay */}
+                    <div className="absolute inset-0 bg-cyber-primary/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                </div>
+                
+                {/* Tech Deco Elements */}
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-cyber-black border border-cyber-primary px-3 py-1 text-[10px] text-cyber-primary uppercase tracking-widest">
+                    Identity Verified
+                </div>
+             </div>
           </div>
         </div>
       </section>

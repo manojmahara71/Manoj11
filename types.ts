@@ -35,6 +35,7 @@ export interface SiteConfig {
   title: string;
   subtitle: string;
   aboutText: string;
+  avatarUrl: string;
   email: string;
   socials: {
     github: string;

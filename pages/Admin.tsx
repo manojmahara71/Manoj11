@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useCMS } from '../context/CMSContext';
 import { CyberButton, StatCard } from '../components/ui/CyberComponents';
-import { BarChart, Users, FileText, Settings, Shield, Plus, Trash, Save, Cpu, Eye, X, Calendar, Tag } from 'lucide-react';
+import { BarChart, Users, FileText, Settings, Shield, Plus, Trash, Save, Cpu, Eye, X, Calendar, Tag, Image as ImageIcon } from 'lucide-react';
 import { Article } from '../types';
 
 const LoginForm = () => {
@@ -200,12 +200,28 @@ export default function Admin() {
                 <div className="bg-cyber-panel border border-gray-800 p-6">
                     <h3 className="text-white font-bold mb-4 flex items-center gap-2"><Settings size={18}/> General Configuration</h3>
                     <div className="space-y-4">
+                        {/* Avatar Settings */}
+                        <div>
+                            <label className="block text-xs text-gray-500 uppercase mb-1">Profile Photo (URL)</label>
+                            <div className="flex gap-4 items-center">
+                                <div className="w-16 h-16 rounded-full overflow-hidden border-2 border-cyber-primary shrink-0 relative group">
+                                    <img src={config.avatarUrl} alt="Preview" className="w-full h-full object-cover" />
+                                </div>
+                                <input 
+                                    value={config.avatarUrl} 
+                                    onChange={(e) => updateConfig({ avatarUrl: e.target.value })}
+                                    className="flex-1 bg-black border border-gray-700 p-2 text-white focus:border-cyber-primary outline-none"
+                                    placeholder="https://example.com/photo.jpg"
+                                />
+                            </div>
+                        </div>
+
                         <div>
                             <label className="block text-xs text-gray-500 uppercase mb-1">Website Name</label>
                             <input 
                                 value={config.name} 
                                 onChange={(e) => updateConfig({ name: e.target.value })}
-                                className="w-full bg-black border border-gray-700 p-2 text-white"
+                                className="w-full bg-black border border-gray-700 p-2 text-white focus:border-cyber-primary outline-none"
                             />
                         </div>
                         <div>
@@ -213,7 +229,7 @@ export default function Admin() {
                             <input 
                                 value={config.adsenseId} 
                                 onChange={(e) => updateConfig({ adsenseId: e.target.value })}
-                                className="w-full bg-black border border-gray-700 p-2 text-white"
+                                className="w-full bg-black border border-gray-700 p-2 text-white focus:border-cyber-primary outline-none"
                             />
                         </div>
                     </div>

@@ -6,6 +6,7 @@ const defaultConfig: SiteConfig = {
   title: "Creative Technologist",
   subtitle: "Building the digital future with code & creativity.",
   aboutText: "I am a Full Stack Developer specializing in 3D Web Experiences, futuristic UI/UX, and scalable backend systems. Based in Nepal, available globally.",
+  avatarUrl: "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
   email: "contact@manojmahara.com.np",
   socials: {
     github: "https://github.com",
